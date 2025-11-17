@@ -1,24 +1,22 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Header from './components/layout/Header.tsx';
 import Home from './pages/Home.tsx';
-import Shop from './pages/Shop.tsx'; // Import Shop page
-import About from './pages/About.tsx'; // Import About page
-import Header from './components/layout/Header.tsx'; // Import Header
+import Shop from './pages/Shop.tsx';
+import About from './pages/About.tsx';
+import NotFound from './pages/NotFound.tsx';
 
 function App() {
   return (
     <BrowserRouter>
-      <div className="flex flex-col min-h-screen"> {/* Flex container for full height */}
-        <Header /> {/* Render Header here */}
-        <main className="flex-grow"> {/* Main content area takes remaining space */}
-          <Routes>
-            <Route path='/' element={<Home />} />
-            <Route path='/shop' element={<Shop />} /> {/* New route */}
-            <Route path='/about' element={<About />} /> {/* New route */}
-            {/* You can add a NotFound page route here as well */}
-          </Routes>
-        </main>
-        {/* You can add a Footer component here if needed */}
-      </div>
+      <Header />
+      <main className="container mx-auto mt-4">
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/shop' element={<Shop />} />
+          <Route path='/about' element={<About />} />
+          <Route path='*' element={<NotFound />} /> {/* Catch-all for 404 */}
+        </Routes>
+      </main>
     </BrowserRouter>
   );
 }
