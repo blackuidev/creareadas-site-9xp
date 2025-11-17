@@ -1,11 +1,8 @@
+const Index = () => (
+  <div className="p-4">
+    <h2>Welcome to the Landing Page!</h2>
+    <p>This is the main entry point of the application.</p>
+  </div>
+);
 
-const Index = () => {
-
-  return (
-    <div className='overflow-hidden min-h-screen flex flex-col gap-40'>
-
-    </div>
-  )
-}
-
-export default Index
+export default Index;
