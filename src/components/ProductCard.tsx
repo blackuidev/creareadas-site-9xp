@@ -1,37 +1,29 @@
 import React from 'react';
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 import { Link } from 'react-router-dom';
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import { Product } from '../data/products';
 
 interface ProductCardProps {
-  product: {
-    id: string;
-    name: string;
-    price: number;
-    image: string;
-    category: string;
-  };
+  product: Product;
 }
 
 const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   return (
-    <Card className="flex flex-col h-full hover:shadow-lg transition-shadow duration-200 ease-in-out">
-      <CardHeader className="p-0">
-        <Link to={`/shop/${product.id}`}>
-          <img src={product.image} alt={product.name} className="w-full h-48 object-cover rounded-t-lg" />
-        </Link>
+    <Card className="w-full max-w-sm rounded-lg overflow-hidden shadow-lg transition-transform duration-300 hover:scale-105">
+      <img src={product.imageUrl} alt={product.name} className="w-full h-48 object-cover" />
+      <CardHeader>
+        <CardTitle className="text-xl font-bold">{product.name}</CardTitle>
+        <CardDescription className="text-sm text-gray-500">{product.category}</CardDescription>
       </CardHeader>
-      <CardContent className="flex-grow p-4">
-        <CardTitle className="text-lg font-semibold mb-2">
-          <Link to={`/shop/${product.id}`} className="hover:underline">
-            {product.name}
-          </Link>
-        </CardTitle>
-        <p className="text-gray-600 text-sm mb-1">{product.category}</p>
-        <p className="text-xl font-bold text-green-700">${product.price.toFixed(2)}</p>
+      <CardContent>
+        <p className="text-lg font-semibold text-primary">${product.price.toLocaleString()}</p>
+        <p className="text-sm text-muted-foreground mt-2 line-clamp-2">{product.description}</p>
       </CardContent>
-      <CardFooter className="p-4 pt-0">
-        <Button className="w-full bg-green-600 hover:bg-green-700">Add to Cart</Button>
+      <CardFooter className="flex justify-end p-4 pt-0">
+        <Link to={`/shop/${product.id}`}>
+          <Button variant="outline">View Details</Button>
+        </Link>
       </CardFooter>
     </Card>
   );
