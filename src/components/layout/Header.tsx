@@ -1,13 +1,33 @@
+import { Link } from 'react-router-dom';
+
 const Header = () => {
   return (
-    <header className="bg-gray-800 text-white p-4 shadow-md">
-      <nav className="container mx-auto flex justify-between items-center">
-        <a href="/" className="text-2xl font-bold">Codem Name</a>
-        {/* Add navigation links here */}
-        <ul className="flex space-x-4">
-          <li><a href="/" className="hover:text-gray-300">Home</a></li>
-          <li><a href="/shop" className="hover:text-gray-300">Shop</a></li>
-          <li><a href="/about" className="hover:text-gray-300">About</a></li>
+    <header className="bg-gray-800 p-4 text-white shadow-md">
+      <nav className="container mx-auto flex items-center justify-between">
+        <Link to="/" className="text-2xl font-bold text-white hover:text-gray-300">
+          CarRental
+        </Link>
+        <ul className="flex space-x-6">
+          <li>
+            <Link to="/" className="text-white hover:text-gray-300">
+              Home
+            </Link>
+          </li>
+          <li>
+            <Link to="/shop" className="text-white hover:text-gray-300">
+              Shop
+            </Link>
+          </li>
+          <li>
+            <Link to="/about" className="text-white hover:text-gray-300">
+              About
+            </Link>
+          </li>
+          <li>
+            <Link to="/login" className="rounded bg-indigo-600 px-3 py-1 text-white hover:bg-indigo-700">
+              Login
+            </Link>
+          </li>
         </ul>
       </nav>
     </header>
