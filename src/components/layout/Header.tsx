@@ -1,49 +1,26 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
-import {
-  NavigationMenu,
-  NavigationMenuLink,
-  NavigationMenuList,
-  navigationMenuTriggerStyle,
-} from "@/components/ui/navigation-menu";
-import { ModeToggle } from '@/components/ui/toggle-theme';
 
-const Header: React.FC = () => {
+const Header = () => {
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 shadow-sm backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container mx-auto flex h-16 items-center justify-between px-4 sm:px-6 lg:px-8">
-        <Link to="/" className="flex items-center space-x-2">
-          <span className="font-bold text-xl">Lightswind Car Rentals</span>
+    <header className="p-4 bg-gray-800 text-white flex justify-between items-center shadow-md">
+      <Link to="/" className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600">
+        My Portfolio
+      </Link>
+      <nav className="space-x-4">
+        <Link to="/">
+          <Button variant="ghost" className="text-white hover:bg-gray-700">Home</Button>
         </Link>
-
-        <NavigationMenu>
-          <NavigationMenuList>
-            <NavigationMenuLink asChild>
-              <Link to="/" className={navigationMenuTriggerStyle()}>
-                Home
-              </Link>
-            </NavigationMenuLink>
-            <NavigationMenuLink asChild>
-              <Link to="/shop" className={navigationMenuTriggerStyle()}>
-                Shop
-              </Link>
-            </NavigationMenuLink>
-            <NavigationMenuLink asChild>
-              <Link to="/about" className={navigationMenuTriggerStyle()}>
-                About
-              </Link>
-            </NavigationMenuLink>
-          </NavigationMenuList>
-        </NavigationMenu>
-
-        <div className="flex items-center space-x-4">
-          <ModeToggle />
-          <Link to="/login">
-            <Button variant="ghost">Login</Button>
-          </Link>
-        </div>
-      </div>
+        <Link to="/about">
+          <Button variant="ghost" className="text-white hover:bg-gray-700">About</Button>
+        </Link>
+        <Link to="/projects">
+          <Button variant="ghost" className="text-white hover:bg-gray-700">Projects</Button>
+        </Link>
+        <Link to="/contact">
+          <Button variant="ghost" className="text-white hover:bg-gray-700">Contact</Button>
+        </Link>
+      </nav>
     </header>
   );
 };

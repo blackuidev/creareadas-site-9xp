@@ -1,33 +1,35 @@
-import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Layout from '@/components/layout/Layout';
-import HomePage from '@/pages/Home';
-import ShopPage from '@/pages/Shop';
-import AboutPage from '@/pages/About';
-import LoginPage from '@/pages/Login';
-import CartPage from '@/pages/Cart';
-import ProductDetailPage from '@/pages/ProductDetail';
-import NotFoundPage from '@/pages/NotFound';
-
-import { ThemeProvider } from '@/context/ThemeContext';
+import Layout from './components/layout/Layout';
+import Home from './pages/Home';
+import About from './pages/About';
+import Shop from './pages/Shop';
+import ProductDetail from './pages/ProductDetail';
+import Cart from './pages/Cart';
+import Login from './pages/Login';
+import NotFound from './pages/NotFound';
+import Projects from './pages/Projects'; // New import
+import Contact from './pages/Contact';   // New import
+import './App.css';
 
 function App() {
   return (
-    <ThemeProvider>
-      <Router>
-        <Layout>
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/shop" element={<ShopPage />} />
-            <Route path="/about" element={<AboutPage />} />
-            <Route path="/login" element={<LoginPage />} />
-            <Route path="/cart" element={<CartPage />} />
-            <Route path="/product/:id" element={<ProductDetailPage />} />
-            <Route path="*" element={<NotFoundPage />} />
-          </Routes>
-        </Layout>
-      </Router>
-    </ThemeProvider>
+    <Router>
+      <Layout>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/projects" element={<Projects />} /> {/* New Route */}
+          <Route path="/contact" element={<Contact />} />   {/* New Route */}
+
+          {/* Existing e-commerce routes (untouched for portfolio) */}
+          <Route path="/shop" element={<Shop />} />
+          <Route path="/product/:id" element={<ProductDetail />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </Layout>
+    </Router>
   );
 }
 
