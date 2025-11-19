@@ -1,28 +1,32 @@
-import { Link } from 'react-router-dom';
+import { Button } from "@/components/ui/button";
+import { ToggleTheme } from "@/components/ui/toggle-theme";
+import { Link } from "react-router-dom";
+import { Card } from "@/components/ui/card";
 
 const Header = () => {
   return (
-    <header className="bg-gray-800 text-white p-4 shadow-md">
-      <nav className="container mx-auto flex justify-between items-center">
-        <Link to="/" className="text-2xl font-bold text-blue-400 hover:text-blue-300 transition-colors duration-200">
+    <Card className="sticky top-0 z-50 p-4 bg-background/95 shadow-md flex justify-between items-center dark:bg-zinc-900/95 border-b border-border/40">
+      <div className="container mx-auto flex justify-between items-center">
+        <Link to="/" className="text-2xl font-bold text-primary hover:opacity-80 transition-opacity">
           Creareadas
         </Link>
-        <ul className="flex space-x-6">
-          <li>
-            <Link to="/" className="hover:text-blue-300 transition-colors duration-200">Home</Link>
-          </li>
-          <li>
-            <Link to="/shop" className="hover:text-blue-300 transition-colors duration-200">Shop</Link>
-          </li>
-          <li>
-            <Link to="/about" className="hover:text-blue-300 transition-colors duration-200">About</Link>
-          </li>
-          <li>
-            <Link to="/login" className="hover:text-blue-300 transition-colors duration-200">Login</Link>
-          </li>
-        </ul>
-      </nav>
-    </header>
+        <nav className="flex items-center space-x-4">
+          <Link to="/">
+            <Button variant="ghost">Home</Button>
+          </Link>
+          <Link to="/shop">
+            <Button variant="ghost">Shop</Button>
+          </Link>
+          <Link to="/about">
+            <Button variant="ghost">About</Button>
+          </Link>
+          <Link to="/login">
+            <Button variant="ghost">Login</Button>
+          </Link>
+          <ToggleTheme />
+        </nav>
+      </div>
+    </Card>
   );
 };
 

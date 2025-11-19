@@ -1,22 +1,26 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Header from './components/layout/Header.tsx';
-import Home from './pages/Home.tsx';
-import Shop from './pages/Shop.tsx';
-import About from './pages/About.tsx';
-import Login from './pages/Login.tsx';
-import NotFound from './pages/NotFound.tsx';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { ThemeProvider } from "./context/ThemeContext";
+import Layout from "./components/layout/Layout";
+import Home from "./pages/Home";
+import Shop from "./pages/Shop";
+import About from "./pages/About";
+import Login from "./pages/Login";
+import NotFound from "./pages/NotFound";
 
 function App() {
   return (
     <BrowserRouter>
-      <Header />
-      <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/shop' element={<Shop />} />
-        <Route path='/about' element={<About />} />
-        <Route path='/login' element={<Login />} />
-        <Route path='*' element={<NotFound />} /> {/* Catch-all for 404 */}
-      </Routes>
+      <ThemeProvider>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<Home />} />
+            <Route path="shop" element={<Shop />} />
+            <Route path="about" element={<About />} />
+            <Route path="login" element={<Login />} />
+            <Route path="*" element={<NotFound />} />
+          </Route>
+        </Routes>
+      </ThemeProvider>
     </BrowserRouter>
   );
 }
