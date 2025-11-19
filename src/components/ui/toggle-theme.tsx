@@ -1,16 +1,17 @@
-import { useTheme } from '../../context/ThemeContext.tsx'; // Adjust path if necessary
+import { Button } from "@/components/ui/button";
+import { useTheme } from "@/context/ThemeContext";
 
-const ToggleTheme = () => {
+export function ToggleTheme() {
   const { theme, toggleTheme } = useTheme();
 
   return (
-    <button
-      onClick={toggleTheme}
-      className="p-2 rounded-md bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200"
-    >
-      {theme === 'light' ? 'Switch to Dark' : 'Switch to Light'}
-    </button>
+    <Button variant="ghost" size="icon" onClick={toggleTheme}>
+      {theme === "dark" ? (
+        <span className="text-xl">☀️</span>
+      ) : (
+        <span className="text-xl">🌙</span>
+      )}
+      <span className="sr-only">Toggle theme</span>
+    </Button>
   );
-};
-
-export default ToggleTheme;
+}
