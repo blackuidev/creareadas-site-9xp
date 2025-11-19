@@ -9,16 +9,14 @@ import NotFound from './pages/NotFound.tsx';
 function App() {
   return (
     <BrowserRouter>
-      <Header /> {/* Render Header on all pages */}
-      <main className="flex-grow"> {/* Added main tag for content area */}
-        <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/shop' element={<Shop />} />
-          <Route path='/about' element={<About />} />
-          <Route path='/login' element={<Login />} />
-          <Route path='*' element={<NotFound />} /> {/* Catch-all for 404 */}
-        </Routes>
-      </main>
+      <Header />
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/shop' element={<Shop />} />
+        <Route path='/about' element={<About />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='*' element={<NotFound />} /> {/* Catch-all for 404 */}
+      </Routes>
     </BrowserRouter>
   );
 }

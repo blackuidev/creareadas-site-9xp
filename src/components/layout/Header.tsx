@@ -2,31 +2,23 @@ import { Link } from 'react-router-dom';
 
 const Header = () => {
   return (
-    <header className="bg-gray-800 p-4 text-white shadow-md">
-      <nav className="container mx-auto flex items-center justify-between">
-        <Link to="/" className="text-2xl font-bold text-white hover:text-gray-300">
-          CarRental
+    <header className="bg-gray-800 text-white p-4 shadow-md">
+      <nav className="container mx-auto flex justify-between items-center">
+        <Link to="/" className="text-2xl font-bold text-blue-400 hover:text-blue-300 transition-colors duration-200">
+          Creareadas
         </Link>
         <ul className="flex space-x-6">
           <li>
-            <Link to="/" className="text-white hover:text-gray-300">
-              Home
-            </Link>
+            <Link to="/" className="hover:text-blue-300 transition-colors duration-200">Home</Link>
           </li>
           <li>
-            <Link to="/shop" className="text-white hover:text-gray-300">
-              Shop
-            </Link>
+            <Link to="/shop" className="hover:text-blue-300 transition-colors duration-200">Shop</Link>
           </li>
           <li>
-            <Link to="/about" className="text-white hover:text-gray-300">
-              About
-            </Link>
+            <Link to="/about" className="hover:text-blue-300 transition-colors duration-200">About</Link>
           </li>
           <li>
-            <Link to="/login" className="rounded bg-indigo-600 px-3 py-1 text-white hover:bg-indigo-700">
-              Login
-            </Link>
+            <Link to="/login" className="hover:text-blue-300 transition-colors duration-200">Login</Link>
           </li>
         </ul>
       </nav>
