@@ -1,18 +1,22 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 import Header from './Header';
 import Footer from './Footer';
+import Sidebar from './Sidebar'; // Import the new Sidebar
 
 interface LayoutProps {
-  children: ReactNode;
+  children: React.ReactNode;
 }
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="flex flex-col min-h-screen bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-gray-50">
       <Header />
-      <main className="flex-grow">
-        {children}
-      </main>
+      <div className="flex flex-1">
+        <Sidebar /> {/* Integrate Sidebar */}
+        <main className="flex-1 overflow-y-auto">
+          {children}
+        </main>
+      </div>
       <Footer />
     </div>
   );
