@@ -1,28 +1,27 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 
-const Header: React.FC = () => {
+const Header = () => {
   return (
-    <header className="bg-gradient-to-r from-green-600 to-lime-500 text-white p-4 shadow-md">
+    <header className="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-4 shadow-md">
       <nav className="container mx-auto flex justify-between items-center">
-        <Link to="/" className="text-2xl font-bold">
-          GrocerEase
+        <Link to="/" className="text-2xl font-bold hover:text-gray-200 transition-colors">
+          Lightswind Rentals
         </Link>
         <div className="space-x-4">
-          <Button asChild variant="ghost" className="text-white hover:bg-green-700">
+          <Button variant="ghost" asChild>
             <Link to="/">Home</Link>
           </Button>
-          <Button asChild variant="ghost" className="text-white hover:bg-green-700">
+          <Button variant="ghost" asChild>
             <Link to="/shop">Shop</Link>
           </Button>
-          <Button asChild variant="ghost" className="text-white hover:bg-green-700">
+          <Button variant="ghost" asChild>
             <Link to="/about">About</Link>
           </Button>
-          <Button asChild variant="ghost" className="text-white hover:bg-green-700">
+          <Button variant="ghost" asChild>
             <Link to="/cart">Cart</Link>
           </Button>
-          <Button asChild variant="secondary" className="bg-white text-green-700 hover:bg-gray-100">
+          <Button variant="secondary" asChild>
             <Link to="/login">Login</Link>
           </Button>
         </div>
