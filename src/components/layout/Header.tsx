@@ -1,32 +1,33 @@
-import { Button } from "@/components/ui/button";
-import { ToggleTheme } from "@/components/ui/toggle-theme";
-import { Link } from "react-router-dom";
-import { Card } from "@/components/ui/card";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { Button } from '@/components/ui/button';
 
-const Header = () => {
+const Header: React.FC = () => {
   return (
-    <Card className="sticky top-0 z-50 p-4 bg-background/95 shadow-md flex justify-between items-center dark:bg-zinc-900/95 border-b border-border/40">
-      <div className="container mx-auto flex justify-between items-center">
-        <Link to="/" className="text-2xl font-bold text-primary hover:opacity-80 transition-opacity">
-          Creareadas
+    <header className="bg-gradient-to-r from-green-600 to-lime-500 text-white p-4 shadow-md">
+      <nav className="container mx-auto flex justify-between items-center">
+        <Link to="/" className="text-2xl font-bold">
+          GrocerEase
         </Link>
-        <nav className="flex items-center space-x-4">
-          <Link to="/">
-            <Button variant="ghost">Home</Button>
-          </Link>
-          <Link to="/shop">
-            <Button variant="ghost">Shop</Button>
-          </Link>
-          <Link to="/about">
-            <Button variant="ghost">About</Button>
-          </Link>
-          <Link to="/login">
-            <Button variant="ghost">Login</Button>
-          </Link>
-          <ToggleTheme />
-        </nav>
-      </div>
-    </Card>
+        <div className="space-x-4">
+          <Button asChild variant="ghost" className="text-white hover:bg-green-700">
+            <Link to="/">Home</Link>
+          </Button>
+          <Button asChild variant="ghost" className="text-white hover:bg-green-700">
+            <Link to="/shop">Shop</Link>
+          </Button>
+          <Button asChild variant="ghost" className="text-white hover:bg-green-700">
+            <Link to="/about">About</Link>
+          </Button>
+          <Button asChild variant="ghost" className="text-white hover:bg-green-700">
+            <Link to="/cart">Cart</Link>
+          </Button>
+          <Button asChild variant="secondary" className="bg-white text-green-700 hover:bg-gray-100">
+            <Link to="/login">Login</Link>
+          </Button>
+        </div>
+      </nav>
+    </header>
   );
 };
 
