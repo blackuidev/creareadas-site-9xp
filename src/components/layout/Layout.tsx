@@ -1,15 +1,19 @@
-import { Outlet } from 'react-router-dom';
+import React from 'react';
 import Header from './Header';
-import Footer from './Footer';
+import Footer from './Footer'; // Import the Footer component
 
-const Layout = () => {
+interface LayoutProps {
+  children: React.ReactNode;
+}
+
+const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
     <div className="flex flex-col min-h-screen">
       <Header />
-      <main className="flex-grow container mx-auto p-4">
-        <Outlet />
+      <main className="flex-grow">
+        {children}
       </main>
-      <Footer />
+      <Footer /> {/* Render the Footer component here */}
     </div>
   );
 };
