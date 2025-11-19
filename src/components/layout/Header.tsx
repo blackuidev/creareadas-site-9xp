@@ -1,33 +1,48 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Button } from '@/components/ui/button';
-import { ToggleTheme } from '@/components/ui/toggle-theme';
+import { Button } from "@/components/ui/button";
+import {
+  NavigationMenu,
+  NavigationMenuLink,
+  NavigationMenuList,
+  navigationMenuTriggerStyle,
+} from "@/components/ui/navigation-menu";
+import { ModeToggle } from '@/components/ui/toggle-theme';
 
 const Header: React.FC = () => {
   return (
-    <header className="bg-background border-b sticky top-0 z-50 shadow-sm">
-      <div className="container mx-auto px-4 py-3 flex justify-between items-center">
-        <Link to="/" className="text-2xl font-bold bg-gradient-to-r from-blue-600 via-green-500 to-indigo-400 inline-block text-transparent bg-clip-text">
-          LuxMotors & Tech
+    <header className="sticky top-0 z-50 w-full border-b bg-background/95 shadow-sm backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <div className="container mx-auto flex h-16 items-center justify-between px-4 sm:px-6 lg:px-8">
+        <Link to="/" className="flex items-center space-x-2">
+          <span className="font-bold text-xl">Lightswind Car Rentals</span>
         </Link>
-        <nav className="flex items-center space-x-4">
-          <Link to="/">
-            <Button variant="ghost" className="text-lg">Home</Button>
-          </Link>
-          <Link to="/shop">
-            <Button variant="ghost" className="text-lg">Shop</Button>
-          </Link>
-          <Link to="/about">
-            <Button variant="ghost" className="text-lg">About</Button>
-          </Link>
+
+        <NavigationMenu>
+          <NavigationMenuList>
+            <NavigationMenuLink asChild>
+              <Link to="/" className={navigationMenuTriggerStyle()}>
+                Home
+              </Link>
+            </NavigationMenuLink>
+            <NavigationMenuLink asChild>
+              <Link to="/shop" className={navigationMenuTriggerStyle()}>
+                Shop
+              </Link>
+            </NavigationMenuLink>
+            <NavigationMenuLink asChild>
+              <Link to="/about" className={navigationMenuTriggerStyle()}>
+                About
+              </Link>
+            </NavigationMenuLink>
+          </NavigationMenuList>
+        </NavigationMenu>
+
+        <div className="flex items-center space-x-4">
+          <ModeToggle />
           <Link to="/login">
-            <Button variant="ghost" className="text-lg">Login</Button>
+            <Button variant="ghost">Login</Button>
           </Link>
-          <Link to="/cart">
-            <Button variant="ghost" className="text-lg">Cart</Button>
-          </Link>
-          <ToggleTheme />
-        </nav>
+        </div>
       </div>
     </header>
   );

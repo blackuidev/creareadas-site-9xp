@@ -1,18 +1,17 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import Header from './Header';
 import Footer from './Footer';
-import { Outlet } from 'react-router-dom';
 
 interface LayoutProps {
-  // children?: React.ReactNode; // No longer needed with Outlet
+  children: ReactNode;
 }
 
-const Layout: React.FC<LayoutProps> = () => {
+const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="min-h-screen flex flex-col">
       <Header />
       <main className="flex-grow">
-        <Outlet /> {/* This is where the routed components will be rendered */}
+        {children}
       </main>
       <Footer />
     </div>

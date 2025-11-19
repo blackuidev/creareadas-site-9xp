@@ -1,40 +1,89 @@
 import React from 'react';
-import { ShinyText } from '@/components/ui/shiny-text';
-import { AuroraBackground } from '@/components/ui/aurora-background';
-import { SparkleParticles } from '@/components/ui/sparkle-particles';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
-const About: React.FC = () => {
+const AboutPage: React.FC = () => {
   return (
-    <AuroraBackground>
-      <SparkleParticles
-        minSize={0.6}
-        maxSize={1.5}
-        particleDensity={50}
-        className="absolute inset-0"
-      />
-      <div className="container mx-auto px-4 py-16 md:py-24 relative z-10 flex flex-col items-center justify-center min-h-[calc(100vh-160px)]">
-        <Card className="w-full max-w-3xl p-8 shadow-2xl rounded-lg text-center bg-card/80 backdrop-blur-sm">
-          <CardHeader className="pb-6">
-            <CardTitle className="text-5xl font-extrabold mb-4">
-              <ShinyText text="About LuxMotors & Tech" className="inline-block" />
-            </CardTitle>
-          </CardHeader>
-          <CardContent className="text-lg leading-relaxed text-muted-foreground">
-            <p className="mb-6">
-              At LuxMotors & Tech, we are dedicated to providing an unparalleled experience in the world of luxury vehicles and premium technology. Our curated selection features the latest innovations in automotive engineering and state-of-the-art gadgets designed to elevate your lifestyle.
+    <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <h1 className="text-4xl font-bold mb-8 text-center">About Lightswind Car Rentals</h1>
+
+      <section className="mb-12">
+        <Card>
+          <CardContent className="p-6">
+            <p className="text-lg mb-4">
+              Lightswind Car Rentals is dedicated to providing premium car rental services across the globe. 
+              Our mission is to make car rental easy, affordable, and accessible for everyone, 
+              whether for business trips, family vacations, or daily commutes.
             </p>
-            <p className="mb-6">
-              Founded with a passion for excellence and a commitment to customer satisfaction, we strive to bring you products that combine sophisticated design, cutting-edge performance, and sustainable solutions. From exhilarating electric SUVs to high-performance laptops, every item in our collection is chosen for its quality, innovation, and ability to inspire.
-            </p>
-            <p>
-              Discover the future of luxury with LuxMotors & Tech – where your aspirations meet reality.
+            <p className="text-lg">
+              Founded in 2023, we've grown from a small local service to a recognized name 
+              in the car rental industry, known for our exceptional customer service and diverse fleet.
             </p>
           </CardContent>
         </Card>
-      </div>
-    </AuroraBackground>
+      </section>
+
+      <section className="mb-12">
+        <h2 className="text-3xl font-bold mb-6 text-center">Our Values</h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <Card>
+            <CardHeader>
+              <CardTitle>Customer Satisfaction</CardTitle>
+            </CardHeader>
+            <CardContent>
+              We prioritize our customers' needs and strive to exceed their expectations with every rental.
+            </CardContent>
+          </Card>
+          <Card>
+            <CardHeader>
+              <CardTitle>Reliability</CardTitle>
+            </CardHeader>
+            <CardContent>
+              Our fleet is meticulously maintained to ensure safety and performance, offering peace of mind.
+            </CardContent>
+          </Card>
+          <Card>
+            <CardHeader>
+              <CardTitle>Innovation</CardTitle>
+            </CardHeader>
+            <CardContent>
+              Constantly integrating new technologies to streamline the rental process and enhance user experience.
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
+      <section>
+        <h2 className="text-3xl font-bold mb-6 text-center">Meet Our Team</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="flex flex-col items-center text-center">
+            <Avatar className="h-24 w-24 mb-4">
+              <AvatarImage src="https://via.placeholder.com/150/random?text=JD" alt="John Doe" />
+              <AvatarFallback>JD</AvatarFallback>
+            </Avatar>
+            <h3 className="text-xl font-semibold">John Doe</h3>
+            <p className="text-muted-foreground">CEO & Founder</p>
+          </div>
+          <div className="flex flex-col items-center text-center">
+            <Avatar className="h-24 w-24 mb-4">
+              <AvatarImage src="https://via.placeholder.com/150/random?text=JS" alt="Jane Smith" />
+              <AvatarFallback>JS</AvatarFallback>
+            </Avatar>
+            <h3 className="text-xl font-semibold">Jane Smith</h3>
+            <p className="text-muted-foreground">Chief Operations Officer</p>
+          </div>
+          <div className="flex flex-col items-center text-center">
+            <Avatar className="h-24 w-24 mb-4">
+              <AvatarImage src="https://via.placeholder.com/150/random?text=AB" alt="Alice Brown" />
+              <AvatarFallback>AB</AvatarFallback>
+            </Avatar>
+            <h3 className="text-xl font-semibold">Alice Brown</h3>
+            <p className="text-muted-foreground">Head of Customer Relations</p>
+          </div>
+        </div>
+      </section>
+    </div>
   );
 };
 
-export default About;
+export default AboutPage;

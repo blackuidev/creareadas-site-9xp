@@ -1,26 +1,33 @@
-import { Routes, Route } from 'react-router-dom';
-import Layout from './components/layout/Layout';
-import Home from './pages/Home';
-import Shop from './pages/Shop';
-import About from './pages/About';
-import NotFound from './pages/NotFound';
-import Login from './pages/Login';
-import Cart from './pages/Cart';
-import ProductDetail from './pages/ProductDetail';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Layout from '@/components/layout/Layout';
+import HomePage from '@/pages/Home';
+import ShopPage from '@/pages/Shop';
+import AboutPage from '@/pages/About';
+import LoginPage from '@/pages/Login';
+import CartPage from '@/pages/Cart';
+import ProductDetailPage from '@/pages/ProductDetail';
+import NotFoundPage from '@/pages/NotFound';
+
+import { ThemeProvider } from '@/context/ThemeContext';
 
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<Layout />}>
-        <Route index element={<Home />} />
-        <Route path="shop" element={<Shop />} />
-        <Route path="shop/:id" element={<ProductDetail />} />
-        <Route path="about" element={<About />} />
-        <Route path="login" element={<Login />} />
-        <Route path="cart" element={<Cart />} />
-        <Route path="*" element={<NotFound />} />
-      </Route>
-    </Routes>
+    <ThemeProvider>
+      <Router>
+        <Layout>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/shop" element={<ShopPage />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/cart" element={<CartPage />} />
+            <Route path="/product/:id" element={<ProductDetailPage />} />
+            <Route path="*" element={<NotFoundPage />} />
+          </Routes>
+        </Layout>
+      </Router>
+    </ThemeProvider>
   );
 }
 
